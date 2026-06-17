@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Dot Developer Platform
+    url: https://dot.mindreset.tech/developers
+    about: Use this landing page for Dot open software and hardware resources.
+  - name: Quote/0 Documentation
+    url: https://dot.mindreset.tech/docs/quote_0
+    about: Read product setup, firmware, FAQ, and user-facing Quote/0 documentation.
+  - name: Community Co-Creation
+    url: https://dot.mindreset.tech/docs/service/co_create
+    about: Browse community software and hardware projects built around Dot.

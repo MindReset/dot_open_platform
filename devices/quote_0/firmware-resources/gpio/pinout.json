@@ -1,0 +1,66 @@
+{
+  "device": "Quote/0",
+  "mcu": "ESP32-C3",
+  "pins": [
+    {
+      "gpio": 0,
+      "name": "VBUS detect",
+      "direction": "input",
+      "notes": "Detects whether USB or external power is connected. High level means external power is present."
+    },
+    {
+      "gpio": 1,
+      "name": "Battery voltage sample",
+      "direction": "input_adc",
+      "notes": "Reads battery voltage through an internal 50 percent / 50 percent resistor divider."
+    },
+    {
+      "gpio": 3,
+      "name": "E-paper BUSY",
+      "direction": "input",
+      "notes": "Reads the display busy state."
+    },
+    {
+      "gpio": 4,
+      "name": "E-paper RESET",
+      "direction": "output",
+      "notes": "Controls display reset."
+    },
+    {
+      "gpio": 5,
+      "name": "E-paper DC",
+      "direction": "output",
+      "notes": "Selects command or data for SPI transfers."
+    },
+    {
+      "gpio": 6,
+      "name": "E-paper CS",
+      "direction": "output",
+      "notes": "Display SPI chip select."
+    },
+    {
+      "gpio": 7,
+      "name": "E-paper MOSI",
+      "direction": "output",
+      "notes": "Display SPI data output."
+    },
+    {
+      "gpio": 10,
+      "name": "E-paper CLK",
+      "direction": "output",
+      "notes": "Display SPI clock."
+    },
+    {
+      "gpio": 20,
+      "name": "E-paper VIN",
+      "direction": "output",
+      "notes": "Controls display power."
+    }
+  ],
+  "notes": [
+    "The e-paper display uses SPI and does not use MISO.",
+    "The default console uses USB-Serial-JTAG and does not require extra UART pins.",
+    "Wi-Fi, Bluetooth LE, and the internal temperature sensor do not require external GPIOs."
+  ]
+}
+

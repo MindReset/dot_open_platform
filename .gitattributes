@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+*.step text eol=lf -diff
+*.stl binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.pdf binary
+

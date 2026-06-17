@@ -1,0 +1,11 @@
+gpio,function,direction,notes
+GPIO0,VBUS detect,input,Detects whether USB or external power is connected. High level means external power is present.
+GPIO1,Battery voltage sample,input_adc,Reads battery voltage through an internal 50 percent / 50 percent resistor divider.
+GPIO3,E-paper BUSY,input,Reads the display busy state.
+GPIO4,E-paper RESET,output,Controls display reset.
+GPIO5,E-paper DC,output,Selects command or data for SPI transfers.
+GPIO6,E-paper CS,output,Display SPI chip select.
+GPIO7,E-paper MOSI,output,Display SPI data output.
+GPIO10,E-paper CLK,output,Display SPI clock.
+GPIO20,E-paper VIN,output,Controls display power.
+

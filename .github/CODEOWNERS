@@ -1,0 +1,8 @@
+# Quote/0 open hardware repository owners.
+#
+# CODEOWNERS is used by GitHub to request reviews from the listed users when
+# pull requests modify matching files. Listed users must have repository write
+# access for review requests to work.
+
+* @evnydd0f @evnydd0sf
+

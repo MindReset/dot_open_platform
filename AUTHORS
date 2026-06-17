@@ -1,0 +1,19 @@
+# Authors
+
+Dot Open Platform and the Quote/0 public hardware resource package are authored and published by MindReset.
+
+## Primary Author
+
+| Name | GitHub | Role |
+| --- | --- | --- |
+| MindReset | | Original author and publisher of the Quote/0 public hardware resources |
+| Zhang Rui | [`@Zhang Rui`](https://github.com/evnydd0f) | Primary repository maintainer |
+| evnydd0sf | [`@evnydd0sf`](https://github.com/evnydd0sf) | Secondary repository maintainer |
+
+## Contributors
+
+External contributors may be credited through Git history and pull requests. If a contribution materially adds a new public hardware file, firmware example, document, or integration resource, maintainers may add an entry here in a future update.
+
+## Attribution
+
+When reusing these materials, follow the attribution guidance in `NOTICE.md`.
