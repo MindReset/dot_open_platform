@@ -6,7 +6,7 @@ This overview summarizes the public hardware-facing details currently available 
 
 Quote/0 uses an ESP32-C3 MCU.
 
-The default console uses USB-Serial-JTAG, so the public pinout does not reserve extra UART pins for console output.
+For custom ESP-IDF firmware, use Pure USB Serial/JTAG console output. The default UART console pins may conflict with `GPIO20`, which controls display power. In `menuconfig`, disable `ESP_CONSOLE_UART_DEFAULT` and enable `ESP_CONSOLE_USB_SERIAL_JTAG`.
 
 ## Power-Related Signals
 

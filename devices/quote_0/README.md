@@ -65,6 +65,12 @@ For a custom firmware port, start with the files in this order:
 
 The minimal display drivers are intentionally small. They focus on initializing the selected panel, sending a full-frame 1bpp buffer, clearing the panel, and entering sleep.
 
+## Custom Firmware Safety
+
+MindReset cannot guarantee the security of custom firmware flashed to Quote/0, and flashing custom firmware voids the device warranty. Before building firmware, read the [custom firmware guide](docs/custom-firmware-guide.md), especially the ESP-IDF console configuration, deep-sleep recovery, and power-on sequence notes.
+
+Use Pure USB Serial/JTAG for ESP-IDF console output. The default UART console pins may conflict with `GPIO20`, which controls display power.
+
 ## Mechanical Files
 
 The current package includes a STEP enclosure model:

@@ -15,7 +15,6 @@ Before porting firmware, read [driver-selection.md](driver-selection.md) and cho
 | Pixel value | `1 = white`, `0 = black` |
 | Framebuffer size | 5,624 bytes |
 | Bus | SPI |
-| MISO | Not used |
 
 ## Files
 

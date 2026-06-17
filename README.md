@@ -89,3 +89,5 @@ See [LICENSE.md](LICENSE.md) and [NOTICE.md](NOTICE.md) before redistributing mo
 ## No Warranty
 
 These resources are provided as open hardware reference material. Verify electrical limits, enclosure tolerances, battery handling, and display behavior before using the files in a production or safety-sensitive context.
+
+MindReset cannot guarantee the security of custom firmware flashed to devices. Flashing custom firmware voids the device warranty. Device-specific safety notes are documented in each custom firmware guide, starting with the [Quote/0 custom firmware guide](devices/quote_0/docs/custom-firmware-guide.md).

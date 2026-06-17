@@ -59,8 +59,7 @@
   ],
   "notes": [
     "The e-paper display uses SPI and does not use MISO.",
-    "The default console uses USB-Serial-JTAG and does not require extra UART pins.",
+    "For custom ESP-IDF firmware, use Pure USB Serial/JTAG console output. The default UART console pins may conflict with GPIO20; disable ESP_CONSOLE_UART_DEFAULT and enable ESP_CONSOLE_USB_SERIAL_JTAG.",
     "Wi-Fi, Bluetooth LE, and the internal temperature sensor do not require external GPIOs."
   ]
 }
-
