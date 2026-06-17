@@ -7,7 +7,7 @@ This folder contains the public hardware-facing files needed to bring up custom 
 | Folder | Purpose |
 | --- | --- |
 | `gpio/` | ESP32-C3 pin usage table in human-readable and machine-readable formats |
-| `display/` | UC8251D e-paper driver, display constants, waveform/LUT notes, and initialization guidance |
+| `display/` | Standard and Early Bird Edition e-paper drivers, display constants, waveform/LUT notes, and initialization guidance |
 
 ## Firmware Assumptions
 
@@ -18,4 +18,3 @@ This folder contains the public hardware-facing files needed to bring up custom 
 - Display framebuffer format is 1 bit per pixel, where `1` means white and `0` means black
 
 These files are intended as reference material. Verify the exact hardware revision before using them in production firmware.
-

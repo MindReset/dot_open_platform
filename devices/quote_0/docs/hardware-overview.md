@@ -36,11 +36,14 @@ MISO is not used.
 
 | Item | Value |
 | --- | --- |
-| Controller | UC8251D |
+| Standard edition controller path | UC8251D |
+| Early Bird Edition controller path | UC8151/IL0324 |
 | Resolution | 152 x 296 |
 | Colors | White and black |
 | Pixel format | 1bpp |
 | Buffer size | 5,624 bytes |
+
+The visible display parameters are the same across the standard edition and Early Bird Edition, but their controller firmware and waveform data differ. Use the Early Bird Edition driver only when the Dot. App device details show `首发版`, `Early Bird Edition`, or `先発版です`.
 
 ## Enclosure
 
@@ -60,4 +63,3 @@ This package currently publishes the resources needed for:
 - Minimal ESP-IDF firmware bring-up.
 
 It does not currently publish PCB source files, schematic PDFs, native CAD files, STL exports, manufacturing drawings, or complete product firmware.
-

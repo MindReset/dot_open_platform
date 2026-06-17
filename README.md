@@ -8,7 +8,7 @@ The first device package in this repository is Quote/0.
 
 | Device | Package | Included resources |
 | --- | --- | --- |
-| Quote/0 | `devices/quote_0/` | Enclosure STEP, ESP32-C3 GPIO map, UC8251D display driver, display waveform/LUT notes, ESP-IDF example, developer documentation |
+| Quote/0 | `devices/quote_0/` | Enclosure STEP, ESP32-C3 GPIO map, standard and Early Bird Edition display drivers, display waveform/LUT notes, ESP-IDF example, developer documentation |
 
 ## Quick Links
 
@@ -16,7 +16,8 @@ The first device package in this repository is Quote/0.
 - [Quote/0 manifest](devices/quote_0/manifest.json)
 - [Quote/0 enclosure STEP](devices/quote_0/enclosure/step/quote_0-enclosure.step)
 - [Quote/0 GPIO pinout](devices/quote_0/firmware-resources/gpio/pinout.md)
-- [UC8251D display resources](devices/quote_0/firmware-resources/display/README.md)
+- [Display resources](devices/quote_0/firmware-resources/display/README.md)
+- [Display driver selection](devices/quote_0/firmware-resources/display/driver-selection.md)
 - [Custom firmware guide](devices/quote_0/docs/custom-firmware-guide.md)
 - [Repository license](LICENSE.md)
 - [Authors](AUTHORS)
@@ -63,8 +64,9 @@ Each device package is intended to be useful in two ways:
 
 - A STEP enclosure model exported in millimeter units.
 - GPIO documentation for the ESP32-C3 pins used by the current Quote/0 hardware design.
-- A minimal ESP-IDF UC8251D driver for the 152 x 296 monochrome e-paper display.
-- Documentation for the included UC8251D full-refresh waveform/LUT data.
+- Minimal ESP-IDF display drivers for the 152 x 296 monochrome e-paper display.
+- Documentation for selecting the standard or Early Bird Edition display driver.
+- Documentation for the included full-refresh waveform/LUT data.
 - A minimal ESP-IDF example showing how to initialize and refresh the display.
 - Licensing, attribution, contribution, support, and security documentation.
 

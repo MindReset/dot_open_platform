@@ -26,6 +26,18 @@ Use Community Co-Creation at https://dot.mindreset.tech/docs/service/co_create.
 
 Yes. Start with the GPIO pinout, display resources, and ESP-IDF example. The public driver is intentionally small so it can be inspected and ported.
 
+## Which display driver should I use?
+
+Use the standard driver unless the Dot. App device details show an Early Bird Edition label.
+
+| Dot. App locale | Device name | Edition label | Driver |
+| --- | --- | --- | --- |
+| `zh-Hans-CN` | `摘录/0` | `首发版` | `uc8151_minimal.*` |
+| `en-US` | `Quote/0` | `Early Bird Edition` | `uc8151_minimal.*` |
+| `ja-JP` | `Quote/0` | `先発版です` | `uc8151_minimal.*` |
+
+If no edition label is shown, use `uc8251d_minimal.*`.
+
 ## Can I manufacture or sell a derivative?
 
 The included materials are published under open licenses that allow broad reuse. You must follow the license and attribution requirements in `LICENSE.md` and `NOTICE.md`. The licenses do not grant trademark rights.
@@ -36,7 +48,7 @@ You may use names for accurate attribution or compatibility statements. Do not u
 
 ## Are display waveforms redistributable?
 
-This package treats the included UC8251D waveform/LUT data as authorized for public redistribution by MindReset. Do not add other vendor waveforms unless their redistribution rights are clear.
+This package treats the included standard and Early Bird Edition waveform/LUT data as authorized for public redistribution by MindReset. Do not add other vendor waveforms unless their redistribution rights are clear.
 
 ## Why is there no STL file?
 
