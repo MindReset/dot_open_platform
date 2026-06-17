@@ -2,19 +2,30 @@
 
 This guide explains how to use the public Quote/0 resources when writing your own firmware.
 
+## Custom Firmware Safety and Warranty
+
+MindReset cannot guarantee the security of custom firmware flashed to devices. Flashing custom firmware voids the device warranty.
+
+Before building ESP-IDF firmware, configure the console to use Pure USB Serial/JTAG. The default UART console pins may conflict with `GPIO20`, which controls display power. In `menuconfig`, disable `ESP_CONSOLE_UART_DEFAULT` and enable `ESP_CONSOLE_USB_SERIAL_JTAG`.
+
+Quote/0 does not have a physical reset button. Do not put the device into deep sleep with no wake timer or external wake trigger, because it may not wake on its own. If this happens, disassemble the device, disconnect the lithium battery connector (`SH1.0`), connect USB Type-C power, and flash corrected firmware before reconnecting the battery.
+
+When the battery is disconnected, use this power-on sequence: connect USB Type-C first, then connect the lithium battery. If the device enters the battery self-protection state, disconnect power and repeat this sequence.
+
 ## Recommended Bring-Up Order
 
 1. Confirm the hardware revision you are targeting.
 2. Review `firmware-resources/gpio/pinout.md`.
 3. Review `firmware-resources/display/driver-selection.md`.
-4. Bring up USB-Serial-JTAG logs.
-5. Configure display power, reset, DC, CS, MOSI, CLK, and BUSY pins.
-6. Initialize SPI.
-7. Reset the selected panel and wait for BUSY.
-8. Load the matching waveform/LUT.
-9. Write a white test frame.
-10. Write a visible black/white test pattern.
-11. Put the display into sleep after refresh.
+4. Configure ESP-IDF console output for Pure USB Serial/JTAG.
+5. Bring up USB-Serial-JTAG logs.
+6. Configure display power, reset, DC, CS, MOSI, CLK, and BUSY pins.
+7. Initialize SPI.
+8. Reset the selected panel and wait for BUSY.
+9. Load the matching waveform/LUT.
+10. Write a white test frame.
+11. Write a visible black/white test pattern.
+12. Put the display into sleep after refresh.
 
 ## Choose the Display Driver
 

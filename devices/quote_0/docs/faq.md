@@ -26,6 +26,24 @@ Use Community Co-Creation at https://dot.mindreset.tech/docs/service/co_create.
 
 Yes. Start with the GPIO pinout, display resources, and ESP-IDF example. The public driver is intentionally small so it can be inspected and ported.
 
+## Does custom firmware affect warranty or security?
+
+Yes. MindReset cannot guarantee the security of custom firmware flashed to devices. Flashing custom firmware voids the device warranty.
+
+## Which ESP-IDF console configuration should I use?
+
+Use Pure USB Serial/JTAG console output. The default UART console pins may conflict with `GPIO20`, which controls display power. In `menuconfig`, disable `ESP_CONSOLE_UART_DEFAULT` and enable `ESP_CONSOLE_USB_SERIAL_JTAG`.
+
+## Can I use deep sleep in custom firmware?
+
+Use deep sleep only when your firmware has a reliable wake timer or external wake trigger. Quote/0 does not have a physical reset button, so a build that enters deep sleep with no wake path may not wake on its own.
+
+If this happens, disassemble the device, disconnect the lithium battery connector (`SH1.0`), connect USB Type-C power, and flash corrected firmware before reconnecting the battery.
+
+## What is the correct power-on sequence after disconnecting the battery?
+
+Connect USB Type-C first, then connect the lithium battery. If the device enters the battery self-protection state, disconnect power and repeat this sequence.
+
 ## Which display driver should I use?
 
 Use the standard driver unless the Dot. App device details show an Early Bird Edition label.

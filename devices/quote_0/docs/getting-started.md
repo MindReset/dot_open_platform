@@ -70,6 +70,11 @@ Verify dimensions and tolerances before manufacturing, printing, or modifying th
 
 ## Safety Notes
 
+- MindReset cannot guarantee the security of custom firmware flashed to devices. Flashing custom firmware voids the device warranty.
+- For ESP-IDF custom firmware, use Pure USB Serial/JTAG console output. The default UART console pins may conflict with `GPIO20`; disable `ESP_CONSOLE_UART_DEFAULT` and enable `ESP_CONSOLE_USB_SERIAL_JTAG`.
+- Quote/0 does not have a physical reset button. Do not enter deep sleep without a wake timer or external wake trigger.
+- If a firmware build leaves the device in deep sleep, disconnect the lithium battery connector (`SH1.0`), connect USB Type-C power, flash corrected firmware, then reconnect the battery.
+- When powering on after battery disconnection, connect USB Type-C first and then connect the lithium battery. Repeating that sequence can recover from the battery self-protection state.
 - Do not assume battery, charging, thermal, or power behavior from GPIO documentation alone.
 - Verify the hardware revision before using these files in production firmware.
 - Treat e-paper waveform data as display-specific.

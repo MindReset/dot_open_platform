@@ -19,7 +19,7 @@ This document lists the ESP32-C3 GPIOs used by the current Quote/0 hardware desi
 ## Notes
 
 - The e-paper display uses SPI and does not use MISO.
-- The default console uses USB-Serial-JTAG and does not require extra UART pins.
+- For custom ESP-IDF firmware, use Pure USB Serial/JTAG console output. The default UART console pins may conflict with `GPIO20`; disable `ESP_CONSOLE_UART_DEFAULT` and enable `ESP_CONSOLE_USB_SERIAL_JTAG`.
 - Wi-Fi, Bluetooth LE, and the internal temperature sensor do not require external GPIOs.
 
 ## Machine-Readable Files
@@ -30,4 +30,3 @@ This document lists the ESP32-C3 GPIOs used by the current Quote/0 hardware desi
 ## License
 
 Hardware connection information is licensed under CERN-OHL-P-2.0. This documentation is licensed under CC BY 4.0.
-
