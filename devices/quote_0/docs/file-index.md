@@ -25,9 +25,12 @@ This index lists the public Quote/0 package files and their intended purpose.
 | `firmware-resources/gpio/pinout.csv` | CSV GPIO table |
 | `firmware-resources/gpio/pinout.json` | JSON GPIO table |
 | `firmware-resources/display/README.md` | Display resource overview |
-| `firmware-resources/display/drivers/README.md` | UC8251D driver notes |
-| `firmware-resources/display/drivers/uc8251d_minimal.h` | Public driver header |
-| `firmware-resources/display/drivers/uc8251d_minimal.c` | Minimal driver implementation |
+| `firmware-resources/display/driver-selection.md` | Standard vs Early Bird Edition display driver selection |
+| `firmware-resources/display/drivers/README.md` | Display driver notes |
+| `firmware-resources/display/drivers/uc8251d_minimal.h` | Standard edition public driver header |
+| `firmware-resources/display/drivers/uc8251d_minimal.c` | Standard edition minimal driver implementation |
+| `firmware-resources/display/drivers/uc8151_minimal.h` | Early Bird Edition public driver header |
+| `firmware-resources/display/drivers/uc8151_minimal.c` | Early Bird Edition minimal driver implementation |
 | `firmware-resources/display/waveforms/README.md` | Waveform/LUT notes |
 | `firmware-resources/display/init-sequences/README.md` | Initialization sequence notes |
 

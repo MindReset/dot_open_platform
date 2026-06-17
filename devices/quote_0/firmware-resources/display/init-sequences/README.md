@@ -1,10 +1,13 @@
-# UC8251D Initialization Sequence Notes
+# Quote/0 Display Initialization Sequence Notes
 
-The public initialization sequence is implemented in:
+The public initialization sequences are implemented in:
 
 ```text
 ../drivers/uc8251d_minimal.c
+../drivers/uc8151_minimal.c
 ```
+
+Use `uc8251d_minimal.*` for standard edition devices. Use `uc8151_minimal.*` only when the Dot. App device details show `首发版`, `Early Bird Edition`, or `先発版です`.
 
 The main bring-up flow is:
 
@@ -34,7 +37,7 @@ The main bring-up flow is:
 
 ## Notes
 
-- The driver polls BUSY with command `0x71`.
+- The standard edition driver polls BUSY with command `0x71`.
+- The Early Bird Edition driver polls BUSY by reading the BUSY GPIO directly.
 - The default SPI clock is 15 MHz when `spi_clock_hz` is not provided.
-- The display sleep path sends command `0x07` followed by `0xA5`, then releases the display power control pin.
-
+- The display sleep path sends the controller-specific sleep sequence, then releases the display power control pin.

@@ -11,7 +11,7 @@ This open device package collects the public files needed to inspect the enclosu
 | Device metadata | `manifest.json` | Machine-readable device and asset index |
 | Enclosure | `enclosure/` | STEP model and mechanical documentation |
 | GPIO | `firmware-resources/gpio/` | ESP32-C3 pinout in Markdown, CSV, and JSON |
-| Display | `firmware-resources/display/` | UC8251D display driver, waveform/LUT notes, and integration docs |
+| Display | `firmware-resources/display/` | Standard and Early Bird Edition display drivers, waveform/LUT notes, and integration docs |
 | Guides | `docs/` | Getting started, hardware overview, custom firmware, display integration, enclosure notes, FAQ |
 | Examples | `examples/` | Minimal ESP-IDF display example |
 
@@ -20,7 +20,7 @@ This open device package collects the public files needed to inspect the enclosu
 | Item | Value |
 | --- | --- |
 | Main MCU | ESP32-C3 |
-| Display controller | UC8251D |
+| Display controller | UC8251D for standard edition; UC8151/IL0324 for Early Bird Edition |
 | Display resolution | 152 x 296 |
 | Display colors | 1-bit monochrome, white/black |
 | Display buffer size | 5,624 bytes |
@@ -57,12 +57,13 @@ This open device package collects the public files needed to inspect the enclosu
 For a custom firmware port, start with the files in this order:
 
 1. `firmware-resources/gpio/pinout.md`
-2. `firmware-resources/display/README.md`
-3. `firmware-resources/display/drivers/uc8251d_minimal.h`
-4. `firmware-resources/display/drivers/uc8251d_minimal.c`
-5. `examples/esp-idf/minimal-display/`
+2. `firmware-resources/display/driver-selection.md`
+3. `firmware-resources/display/README.md`
+4. Standard edition: `firmware-resources/display/drivers/uc8251d_minimal.h` and `firmware-resources/display/drivers/uc8251d_minimal.c`
+5. Early Bird Edition: `firmware-resources/display/drivers/uc8151_minimal.h` and `firmware-resources/display/drivers/uc8151_minimal.c`
+6. `examples/esp-idf/minimal-display/`
 
-The minimal display driver is intentionally small. It focuses on initializing the UC8251D panel, sending a full-frame 1bpp buffer, clearing the panel, and entering sleep.
+The minimal display drivers are intentionally small. They focus on initializing the selected panel, sending a full-frame 1bpp buffer, clearing the panel, and entering sleep.
 
 ## Mechanical Files
 

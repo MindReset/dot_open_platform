@@ -40,10 +40,13 @@ Use the Markdown file for development. Use CSV or JSON for scripts, documentatio
 Read:
 
 - `firmware-resources/display/README.md`
+- `firmware-resources/display/driver-selection.md`
 - `firmware-resources/display/drivers/README.md`
 - `firmware-resources/display/waveforms/README.md`
 
-The included driver targets ESP-IDF and the UC8251D 152 x 296 monochrome panel configuration used by Quote/0.
+Quote/0 has two display driver variants. Use the Early Bird Edition driver only when the Dot. App device details show `首发版`, `Early Bird Edition`, or `先発版です`. Otherwise, use the standard edition driver.
+
+Both drivers target ESP-IDF and the Quote/0 152 x 296 monochrome panel configuration.
 
 ## 5. Try the Example
 
@@ -53,7 +56,7 @@ Open:
 examples/esp-idf/minimal-display/
 ```
 
-The example shows a small full-screen refresh path using the public driver.
+The example shows a small full-screen refresh path using the standard edition public driver. For Early Bird Edition devices, use the same GPIO mapping and framebuffer format, but switch to the UC8151/IL0324 driver described in `firmware-resources/display/driver-selection.md`.
 
 ## 6. Inspect the Enclosure
 

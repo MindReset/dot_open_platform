@@ -1,12 +1,18 @@
 # Quote/0 ESP-IDF Minimal Display Example
 
-This example shows how to initialize the Quote/0 UC8251D display, write a simple 1bpp pattern, refresh the screen, and enter sleep.
+This example shows how to initialize the standard edition Quote/0 UC8251D display, write a simple 1bpp pattern, refresh the screen, and enter sleep.
+
+If the Dot. App device details show `首发版`, `Early Bird Edition`, or `先発版です`, use the Early Bird Edition UC8151/IL0324 driver instead. See:
+
+```text
+../../../firmware-resources/display/driver-selection.md
+```
 
 ## Requirements
 
 - ESP-IDF installed and configured.
 - Quote/0 hardware or compatible wiring.
-- UC8251D display with the Quote/0 152 x 296 monochrome panel configuration.
+- Standard edition UC8251D display with the Quote/0 152 x 296 monochrome panel configuration.
 
 ## Files
 
@@ -41,4 +47,3 @@ The firmware clears the screen to white, draws a small black border pattern into
 - The example does not configure Wi-Fi, Bluetooth LE, storage, or application UI.
 - If your hardware wiring differs from Quote/0, update `display_config` in the example source file.
 - If the display does not refresh, check power, reset, BUSY, CS, MOSI, CLK, and the SPI host.
-

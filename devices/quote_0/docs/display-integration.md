@@ -4,7 +4,7 @@ This guide documents the display behavior exposed in the public Quote/0 package.
 
 ## Controller and Panel
 
-Quote/0 uses a UC8251D-controlled monochrome e-paper display.
+Quote/0 uses a monochrome e-paper display with two driver variants. The standard edition uses the UC8251D driver path. The Early Bird Edition uses the UC8151/IL0324 driver path.
 
 | Item | Value |
 | --- | --- |
@@ -14,6 +14,22 @@ Quote/0 uses a UC8251D-controlled monochrome e-paper display.
 | Color depth | 1 bit per pixel |
 | White pixel | `1` |
 | Black pixel | `0` |
+
+## Driver Selection
+
+Use the Early Bird Edition driver only when the Dot. App device details show one of these labels:
+
+| Dot. App locale | Device name | Edition label | Driver |
+| --- | --- | --- | --- |
+| `zh-Hans-CN` | `摘录/0` | `首发版` | `uc8151_minimal.*` |
+| `en-US` | `Quote/0` | `Early Bird Edition` | `uc8151_minimal.*` |
+| `ja-JP` | `Quote/0` | `先発版です` | `uc8151_minimal.*` |
+
+If the device details do not show one of these labels, use the standard edition driver:
+
+```text
+uc8251d_minimal.*
+```
 
 ## SPI Signals
 
@@ -31,7 +47,7 @@ MISO is not used.
 
 ## Refresh Flow
 
-The minimal driver follows this flow:
+The minimal drivers follow this flow:
 
 1. Enable display power.
 2. Reset the panel.
@@ -46,7 +62,10 @@ The minimal driver follows this flow:
 
 ## Waveform/LUT Data
 
-The public full-refresh LUT is stored in `uc8251d_minimal.c` as `s_lut_gc`.
+The public full-refresh LUT data is stored in the matching driver source file:
+
+- Standard edition: `uc8251d_minimal.c`
+- Early Bird Edition: `uc8151_minimal.c`
 
 See:
 
@@ -54,7 +73,7 @@ See:
 firmware-resources/display/waveforms/README.md
 ```
 
-Use this waveform only with the matching controller and panel configuration unless you have validated another display.
+Use each waveform only with the matching controller and panel configuration unless you have validated another display.
 
 ## Common Bring-Up Problems
 
@@ -68,11 +87,12 @@ Use this waveform only with the matching controller and panel configuration unle
 
 ## Porting Checklist
 
-- Confirm UC8251D controller.
+- Confirm the display variant from Dot. App device details.
+- Use `uc8251d_minimal.*` for standard edition devices.
+- Use `uc8151_minimal.*` for Early Bird Edition devices.
 - Confirm 152 x 296 resolution.
 - Confirm 1bpp framebuffer size.
 - Confirm GPIO mapping.
 - Confirm SPI mode 0.
 - Confirm display power control behavior.
 - Confirm BUSY polarity on the actual panel.
-

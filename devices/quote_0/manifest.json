@@ -24,6 +24,35 @@
     "mcu": "ESP32-C3",
     "display": {
       "controller": "UC8251D",
+      "controllerNotes": "Standard edition devices use UC8251D. Early Bird Edition devices use UC8151/IL0324.",
+      "controllers": [
+        {
+          "variant": "standard",
+          "label": "Standard edition",
+          "controller": "UC8251D",
+          "driver": "firmware-resources/display/drivers/uc8251d_minimal.c"
+        },
+        {
+          "variant": "early_bird",
+          "label": "Early Bird Edition",
+          "controller": "UC8151/IL0324",
+          "driver": "firmware-resources/display/drivers/uc8151_minimal.c",
+          "appEditionLabels": {
+            "zh-Hans-CN": {
+              "name": "摘录/0",
+              "alias": "首发版"
+            },
+            "en-US": {
+              "name": "Quote/0",
+              "alias": "Early Bird Edition"
+            },
+            "ja-JP": {
+              "name": "Quote/0",
+              "alias": "先発版です"
+            }
+          }
+        }
+      ],
       "resolution": {
         "width": 152,
         "height": 296,
@@ -69,14 +98,32 @@
     ],
     "display": [
       {
+        "type": "driver-selection",
+        "path": "firmware-resources/display/driver-selection.md"
+      },
+      {
         "type": "driver",
+        "variant": "standard",
         "language": "c",
         "path": "firmware-resources/display/drivers/uc8251d_minimal.c"
       },
       {
         "type": "driver-header",
+        "variant": "standard",
         "language": "c",
         "path": "firmware-resources/display/drivers/uc8251d_minimal.h"
+      },
+      {
+        "type": "driver",
+        "variant": "early_bird",
+        "language": "c",
+        "path": "firmware-resources/display/drivers/uc8151_minimal.c"
+      },
+      {
+        "type": "driver-header",
+        "variant": "early_bird",
+        "language": "c",
+        "path": "firmware-resources/display/drivers/uc8151_minimal.h"
       },
       {
         "type": "waveform-notes",
