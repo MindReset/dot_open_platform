@@ -24,21 +24,22 @@ The first device package in this repository is Quote/0.
 
 ## Official Online Resources
 
-These links connect this hardware repository to the broader Dot developer and co-creation ecosystem:
+For a product-level overview of the Dot developer ecosystem, visit the [Dot Developer Platform](https://dot.mindreset.tech/developers).
 
-| Resource | Link | Use it for |
-| --- | --- | --- |
-| Developer Platform | https://dot.mindreset.tech/developers | The main landing page for Dot open resources, including software APIs and hardware resources |
-| Quote/0 Docs | https://dot.mindreset.tech/docs/quote_0 | Product introduction, setup, firmware, and user-facing Quote/0 documentation |
-| Developer Platform Docs | https://dot.mindreset.tech/docs/service/open | API keys, device IDs, device status, device settings, and device control APIs |
-| Text API | https://dot.mindreset.tech/docs/service/open/text_api | Send text content to Dot devices |
-| Image API | https://dot.mindreset.tech/docs/service/open/image_api | Send image content to Dot devices |
-| Canvas API | https://dot.mindreset.tech/docs/service/open/canvas_api | Create structured visual content for Dot devices |
-| Skills | https://dot.mindreset.tech/docs/service/open/skill | Build reusable device content workflows |
-| Content Studio | https://dot.mindreset.tech/docs/service/studio | Create and manage rich Dot content without writing a full firmware stack |
-| Community Co-Creation | https://dot.mindreset.tech/docs/service/co_create | Browse community-built Dot integrations and examples |
-| Software Co-Creation | https://dot.mindreset.tech/docs/service/co_create/software | Explore API clients, automations, MCP integrations, dashboards, and software workflows |
-| Hardware Co-Creation | https://dot.mindreset.tech/docs/service/co_create/hardware | Explore community mounts, stands, cases, and other hardware accessories |
+The links below point to reference documentation and community resources that are most relevant when using this repository:
+
+| Resource | What it helps you do |
+| --- | --- |
+| [Quote/0 Docs](https://dot.mindreset.tech/docs/quote_0) | Learn how Quote/0 works, including setup, firmware, and user-facing device behavior. |
+| [Developer Platform Docs](https://dot.mindreset.tech/docs/service/open) | Create API keys, find device IDs, read device status, update device settings, and control device content. |
+| [Text API](https://dot.mindreset.tech/docs/service/open/text_api) | Send text content to Dot devices. |
+| [Image API](https://dot.mindreset.tech/docs/service/open/image_api) | Send image content to Dot devices. |
+| [Canvas API](https://dot.mindreset.tech/docs/service/open/canvas_api) | Create structured visual content for Dot devices. |
+| [Skills](https://dot.mindreset.tech/docs/service/open/skill) | Build reusable device content workflows. |
+| [Content Studio](https://dot.mindreset.tech/docs/service/studio) | Create and manage rich Dot content without writing a full firmware stack. |
+| [Community Co-Creation](https://dot.mindreset.tech/docs/service/co_create) | Browse community-built Dot integrations and examples. |
+| [Software Co-Creation](https://dot.mindreset.tech/docs/service/co_create/software) | Explore API clients, automations, MCP integrations, dashboards, and software workflows. |
+| [Hardware Co-Creation](https://dot.mindreset.tech/docs/service/co_create/hardware) | Explore community mounts, stands, cases, and other hardware accessories. |
 
 ## Repository Layout
 
