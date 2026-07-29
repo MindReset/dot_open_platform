@@ -14,3 +14,8 @@ Official link: https://dot.mindreset.tech
 
 This notice applies to public hardware notes, documentation, images, examples, enclosure files, GPIO data, and minimal display driver files in this repository unless a specific file states otherwise.
 
+## AdventureX 2026 Badge Enclosure
+
+The two Quote/0 AdventureX 2026 badge enclosure STL files were designed by the AdventureX team and are published in this repository by MindReset.
+
+AdventureX: https://adventure-x.org/en

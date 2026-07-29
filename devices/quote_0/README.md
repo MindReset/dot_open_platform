@@ -9,7 +9,7 @@ This open device package collects the public files needed to inspect the enclosu
 | Area | Path | Contents |
 | --- | --- | --- |
 | Device metadata | `manifest.json` | Machine-readable device and asset index |
-| Enclosure | `enclosure/` | STEP model and mechanical documentation |
+| Enclosure | `enclosure/` | Main STEP model, AdventureX 2026 badge STL files, and mechanical documentation |
 | GPIO | `firmware-resources/gpio/` | ESP32-C3 pinout in Markdown, CSV, and JSON |
 | Display | `firmware-resources/display/` | Standard and Early Bird Edition display drivers, waveform/LUT notes, and integration docs |
 | Guides | `docs/` | Getting started, hardware overview, custom firmware, display integration, enclosure notes, FAQ |
@@ -26,7 +26,7 @@ This open device package collects the public files needed to inspect the enclosu
 | Display buffer size | 5,624 bytes |
 | Display bus | SPI, MOSI-only, no MISO |
 | Console | USB-Serial-JTAG |
-| Enclosure file | STEP AP242 exchange file |
+| Enclosure files | STEP AP242 exchange file and binary STL meshes |
 
 ## Official Online Resources
 
@@ -50,7 +50,7 @@ This open device package collects the public files needed to inspect the enclosu
 2. Check the [GPIO pinout](firmware-resources/gpio/pinout.md).
 3. Read the [display resources](firmware-resources/display/README.md).
 4. Try the [ESP-IDF minimal display example](examples/esp-idf/minimal-display/README.md).
-5. Inspect the [enclosure STEP file](enclosure/step/quote_0-enclosure.step) in your CAD tool.
+5. Review the [enclosure resources](enclosure/README.md) and inspect the applicable STEP or STL files in your CAD or slicing tool.
 
 ## Firmware Bring-Up Path
 
@@ -73,13 +73,15 @@ Use Pure USB Serial/JTAG for ESP-IDF console output. The default UART console pi
 
 ## Mechanical Files
 
-The current package includes a STEP enclosure model:
+The package includes the main Quote/0 STEP enclosure model and a two-part AdventureX 2026 badge enclosure:
 
 ```text
 enclosure/step/quote_0-enclosure.step
+enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-front.stl
+enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-back-cover.stl
 ```
 
-The file is intended for inspection, derivative mechanical work, and manufacturing preparation. Always verify tolerances, wall thicknesses, mounting features, and material behavior before production.
+The STEP file supports inspection, derivative mechanical work, and manufacturing preparation. The AdventureX 2026 binary STL files provide a printable front shell and back cover. Always verify units, tolerances, wall thicknesses, mounting features, and material behavior before production.
 
 ## Platform Metadata
 

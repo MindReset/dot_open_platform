@@ -60,13 +60,20 @@ The example shows a small full-screen refresh path using the standard edition pu
 
 ## 6. Inspect the Enclosure
 
-Open the STEP file in your CAD tool:
+Review the main enclosure STEP file in your CAD tool:
 
 ```text
 enclosure/step/quote_0-enclosure.step
 ```
 
-Verify dimensions and tolerances before manufacturing, printing, or modifying the enclosure.
+For the AdventureX 2026 badge enclosure, open both STL parts in your slicing or mesh-editing tool:
+
+```text
+enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-front.stl
+enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-back-cover.stl
+```
+
+Verify units, dimensions, and tolerances before manufacturing, printing, or modifying an enclosure.
 
 ## Safety Notes
 

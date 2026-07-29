@@ -47,19 +47,26 @@ The visible display parameters are the same across the standard edition and Earl
 
 ## Enclosure
 
-The current mechanical release includes a STEP AP242 file exported in millimeter units:
+The current mechanical release includes the main enclosure as a STEP AP242 file exported in millimeter units:
 
 ```text
 enclosure/step/quote_0-enclosure.step
+```
+
+It also includes the two-part AdventureX 2026 badge enclosure as binary STL meshes:
+
+```text
+enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-front.stl
+enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-back-cover.stl
 ```
 
 ## Current Public Scope
 
 This package currently publishes the resources needed for:
 
-- Enclosure inspection and derivative mechanical work.
+- Enclosure inspection, derivative mechanical work, and printing of the AdventureX 2026 badge enclosure.
 - GPIO mapping.
 - Display initialization and full-frame refresh.
 - Minimal ESP-IDF firmware bring-up.
 
-It does not currently publish PCB source files, schematic PDFs, native CAD files, STL exports, manufacturing drawings, or complete product firmware.
+It does not currently publish PCB source files, schematic PDFs, native parametric CAD files, manufacturing drawings, or complete product firmware.

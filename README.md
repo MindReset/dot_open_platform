@@ -8,13 +8,16 @@ The first device package in this repository is Quote/0.
 
 | Device | Package | Included resources |
 | --- | --- | --- |
-| Quote/0 | `devices/quote_0/` | Enclosure STEP, ESP32-C3 GPIO map, standard and Early Bird Edition display drivers, display waveform/LUT notes, ESP-IDF example, developer documentation |
+| Quote/0 | `devices/quote_0/` | Enclosure STEP and AdventureX 2026 badge STL files, ESP32-C3 GPIO map, standard and Early Bird Edition display drivers, display waveform/LUT notes, ESP-IDF example, developer documentation |
 
 ## Quick Links
 
 - [Quote/0 device package](devices/quote_0/README.md)
 - [Quote/0 manifest](devices/quote_0/manifest.json)
+- [Quote/0 enclosure resources](devices/quote_0/enclosure/README.md)
 - [Quote/0 enclosure STEP](devices/quote_0/enclosure/step/quote_0-enclosure.step)
+- [AdventureX 2026 badge front STL](devices/quote_0/enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-front.stl)
+- [AdventureX 2026 badge back cover STL](devices/quote_0/enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-back-cover.stl)
 - [Quote/0 GPIO pinout](devices/quote_0/firmware-resources/gpio/pinout.md)
 - [Display resources](devices/quote_0/firmware-resources/display/README.md)
 - [Display driver selection](devices/quote_0/firmware-resources/display/driver-selection.md)
@@ -63,6 +66,7 @@ Each device package is intended to be useful in two ways:
 ## What Is Included for Quote/0
 
 - A STEP enclosure model exported in millimeter units.
+- A two-part AdventureX 2026 badge enclosure provided as binary STL meshes.
 - GPIO documentation for the ESP32-C3 pins used by the current Quote/0 hardware design.
 - Minimal ESP-IDF display drivers for the 152 x 296 monochrome e-paper display.
 - Documentation for selecting the standard or Early Bird Edition display driver.
@@ -74,7 +78,7 @@ Each device package is intended to be useful in two ways:
 
 Start with the [Quote/0 getting started guide](devices/quote_0/docs/getting-started.md). If you are building custom firmware, continue with the [custom firmware guide](devices/quote_0/docs/custom-firmware-guide.md) and the [display integration guide](devices/quote_0/docs/display-integration.md).
 
-If you are working on the enclosure, start with the [enclosure README](devices/quote_0/enclosure/README.md) and inspect the STEP file in your CAD tool before manufacturing or printing.
+If you are working on the enclosure, start with the [enclosure README](devices/quote_0/enclosure/README.md) and inspect the applicable STEP or STL files in your CAD or slicing tool before manufacturing or printing.
 
 ## License Summary
 

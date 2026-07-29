@@ -2,6 +2,12 @@
 
 All notable public releases of the Dot Open Platform repository are documented here.
 
+## 2026-07-29
+
+### Added
+
+- Two-part AdventureX 2026 badge enclosure for Quote/0 as binary STL files.
+
 ## 2026-06-17
 
 ### Added

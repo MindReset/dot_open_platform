@@ -64,7 +64,7 @@
       "bus": "SPI"
     },
     "enclosure": {
-      "availableFormats": ["STEP"],
+      "availableFormats": ["STEP", "STL"],
       "unit": "mm"
     }
   },
@@ -80,6 +80,20 @@
         "type": "step",
         "path": "enclosure/step/quote_0-enclosure.step",
         "description": "Quote/0 enclosure STEP AP242 exchange file."
+      },
+      {
+        "type": "stl",
+        "variant": "adventurex_2026_badge",
+        "part": "front",
+        "path": "enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-front.stl",
+        "description": "Quote/0 AdventureX 2026 badge enclosure front shell, binary STL."
+      },
+      {
+        "type": "stl",
+        "variant": "adventurex_2026_badge",
+        "part": "back_cover",
+        "path": "enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-back-cover.stl",
+        "description": "Quote/0 AdventureX 2026 badge enclosure back cover, binary STL."
       }
     ],
     "gpio": [

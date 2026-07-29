@@ -15,6 +15,8 @@ This index lists the public Quote/0 package files and their intended purpose.
 | --- | --- |
 | `enclosure/README.md` | Mechanical resource overview |
 | `enclosure/step/quote_0-enclosure.step` | STEP enclosure model |
+| `enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-front.stl` | AdventureX 2026 badge enclosure front shell |
+| `enclosure/stl/adventurex-2026/quote_0-adventurex-2026-badge-back-cover.stl` | AdventureX 2026 badge enclosure back cover |
 
 ## Firmware Resources
 
