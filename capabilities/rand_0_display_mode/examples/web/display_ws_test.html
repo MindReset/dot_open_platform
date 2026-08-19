@@ -1,0 +1,266 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rand/0 Display Mode</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #1d2421;
+      background: #f2f4f0;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(760px, calc(100% - 32px)); margin: 40px auto; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    p { color: #5f6b65; line-height: 1.55; }
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #d8dfd9;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 8px 30px #1d24210d;
+    }
+    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { display: grid; gap: 6px; color: #5f6b65; font-size: 14px; }
+    input, select, button {
+      min-height: 42px;
+      border: 1px solid #cbd5cd;
+      border-radius: 9px;
+      padding: 8px 10px;
+      background: #fff;
+      color: inherit;
+      font: inherit;
+    }
+    button { cursor: pointer; font-weight: 650; }
+    button.primary { border-color: #276c4d; background: #276c4d; color: #fff; }
+    button:disabled { cursor: not-allowed; opacity: .45; }
+    .actions { display: flex; gap: 10px; margin-top: 14px; }
+    .preview {
+      display: grid;
+      place-items: center;
+      min-height: 260px;
+      margin-top: 18px;
+      border: 1px dashed #b9c7bc;
+      border-radius: 12px;
+      background: #eef1ed;
+    }
+    canvas { width: 200px; height: 200px; border: 1px solid #aeb9b0; image-rendering: pixelated; }
+    .file { margin-top: 16px; }
+    .meta { margin: 10px 0 0; font-size: 13px; }
+    .status { display: flex; align-items: center; gap: 8px; font-weight: 650; }
+    .status::before { width: 9px; height: 9px; border-radius: 50%; background: #8b9890; content: ""; }
+    .status.connected::before { background: #2d9a62; }
+    .status.error::before { background: #c84d4d; }
+    code { color: #276c4d; }
+    pre {
+      min-height: 100px;
+      max-height: 180px;
+      margin: 14px 0 0;
+      overflow: auto;
+      border-radius: 9px;
+      padding: 12px;
+      background: #19201c;
+      color: #dce8df;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 12px;
+    }
+    .note { margin-top: 18px; font-size: 13px; }
+    @media (max-width: 560px) {
+      main { margin: 24px auto; }
+      .controls { grid-template-columns: 1fr; }
+      .actions { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Rand/0 Display Mode</h1>
+    <p>Send a custom 200 × 200 image to Rand/0 over your local network.</p>
+
+    <section class="card">
+      <div class="controls">
+        <label>
+          Device IP
+          <input id="host" placeholder="192.168.1.100" autocomplete="off">
+        </label>
+        <label>
+          Mode
+          <select id="mode">
+            <option value="bw">Black and white · 5,000 bytes</option>
+            <option value="gray4">Four gray levels · 10,000 bytes</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="connect" class="primary">Connect</button>
+        <button id="disconnect" disabled>Disconnect</button>
+        <button id="send" class="primary" disabled>Send image</button>
+      </div>
+
+      <div class="preview"><canvas id="preview" width="200" height="200"></canvas></div>
+      <label class="file">
+        Choose image
+        <input id="file" type="file" accept="image/*">
+      </label>
+      <p id="meta" class="meta">Choose an image to begin.</p>
+    </section>
+
+    <section class="card">
+      <div id="status" class="status">Disconnected</div>
+      <p>Device endpoint: <code id="url"></code></p>
+      <pre id="log" aria-live="polite"></pre>
+    </section>
+
+    <p class="note">Use this example only on a trusted local network. Short presses on Rand/0 are returned as JSON button events.</p>
+  </main>
+
+  <script>
+    const WIDTH = 200;
+    const HEIGHT = 200;
+    const $ = (id) => document.getElementById(id);
+    const canvas = $("preview");
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    let socket = null;
+    let sourceImage = null;
+    let payload = null;
+
+    const mode = () => $("mode").value;
+    const endpoint = () => {
+      const host = $("host").value.trim().replace(/^wss?:\/\//i, "").replace(/\/.*$/, "");
+      return `ws://${host}/display/${mode()}`;
+    };
+
+    function log(message) {
+      $("log").textContent += `${new Date().toLocaleTimeString()}  ${message}\n`;
+      $("log").scrollTop = $("log").scrollHeight;
+    }
+
+    function setStatus(label, state = "") {
+      const connected = socket?.readyState === WebSocket.OPEN;
+      $("status").textContent = label;
+      $("status").className = `status ${state}`;
+      $("connect").disabled = socket?.readyState === WebSocket.CONNECTING || connected;
+      $("disconnect").disabled = !socket;
+      $("send").disabled = !connected || !payload;
+    }
+
+    function updateEndpoint() {
+      $("url").textContent = endpoint();
+    }
+
+    function drawSource() {
+      context.fillStyle = "#fff";
+      context.fillRect(0, 0, WIDTH, HEIGHT);
+      if (!sourceImage) return encodeFrame();
+
+      const scale = Math.min(WIDTH / sourceImage.naturalWidth, HEIGHT / sourceImage.naturalHeight);
+      const width = sourceImage.naturalWidth * scale;
+      const height = sourceImage.naturalHeight * scale;
+      context.drawImage(sourceImage, (WIDTH - width) / 2, (HEIGHT - height) / 2, width, height);
+      encodeFrame();
+    }
+
+    function luminance(r, g, b) {
+      return 0.299 * r + 0.587 * g + 0.114 * b;
+    }
+
+    function encodeFrame() {
+      const pixels = context.getImageData(0, 0, WIDTH, HEIGHT).data;
+      const output = context.createImageData(WIDTH, HEIGHT);
+      payload = new Uint8Array(mode() === "bw" ? 5000 : 10000);
+
+      for (let i = 0; i < WIDTH * HEIGHT; i += 1) {
+        const pixel = i * 4;
+        const gray = luminance(pixels[pixel], pixels[pixel + 1], pixels[pixel + 2]);
+        const value = mode() === "bw"
+          ? (gray >= 128 ? 0 : 1)
+          : Math.min(3, Math.round((255 - gray) / 85));
+        const displayValue = mode() === "bw" ? (value ? 0 : 255) : 255 - value * 85;
+
+        if (mode() === "bw") payload[i >> 3] |= (value ^ 1) << (7 - (i & 7));
+        else payload[i >> 2] |= value << (6 - (i & 3) * 2);
+
+        output.data[pixel] = displayValue;
+        output.data[pixel + 1] = displayValue;
+        output.data[pixel + 2] = displayValue;
+        output.data[pixel + 3] = 255;
+      }
+
+      context.putImageData(output, 0, 0);
+      $("meta").textContent = `${mode() === "bw" ? "Black and white" : "Four gray levels"} · 200 × 200 · ${payload.byteLength.toLocaleString()} bytes`;
+      setStatus($("status").textContent, $("status").className.replace("status", "").trim());
+    }
+
+    function disconnect() {
+      const current = socket;
+      socket = null;
+      current?.close();
+      setStatus("Disconnected");
+    }
+
+    function connect() {
+      if (!$("host").value.trim()) return setStatus("Enter the device IP", "error");
+      disconnect();
+      const url = endpoint();
+      setStatus("Connecting...");
+      let current;
+      try {
+        current = new WebSocket(url);
+      } catch (error) {
+        setStatus(error.message, "error");
+        return;
+      }
+      socket = current;
+      current.onopen = () => { setStatus("Connected", "connected"); log(`Connected to ${url}`); };
+      current.onmessage = ({ data }) => {
+        if (typeof data !== "string") return;
+        log(data);
+        try {
+          const message = JSON.parse(data);
+          if (message.type === "key") log(`Button: ${message.key}`);
+        } catch (_) {}
+      };
+      current.onerror = () => setStatus("Connection error", "error");
+      current.onclose = () => {
+        if (socket !== current) return;
+        socket = null;
+        setStatus("Disconnected");
+      };
+    }
+
+    $("host").addEventListener("input", () => { updateEndpoint(); if (socket) disconnect(); });
+    $("mode").addEventListener("change", () => { updateEndpoint(); if (socket) disconnect(); drawSource(); });
+    $("connect").addEventListener("click", connect);
+    $("disconnect").addEventListener("click", disconnect);
+    $("send").addEventListener("click", () => {
+      if (socket?.readyState !== WebSocket.OPEN || !payload) return;
+      socket.send(payload);
+      log(`Sent ${payload.byteLength.toLocaleString()} bytes`);
+    });
+    $("file").addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      const image = new Image();
+      image.onload = () => {
+        URL.revokeObjectURL(url);
+        sourceImage = image;
+        drawSource();
+      };
+      image.onerror = () => { URL.revokeObjectURL(url); setStatus("Image could not be read", "error"); };
+      image.src = url;
+    });
+
+    updateEndpoint();
+    drawSource();
+    setStatus("Disconnected");
+  </script>
+</body>
+</html>

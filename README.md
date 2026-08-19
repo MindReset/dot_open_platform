@@ -1,14 +1,22 @@
 # Dot Open Platform
 
-Dot Open Platform is the public hardware resource repository for MindReset open devices. It provides mechanical files, firmware bring-up resources, pin maps, display integration notes, and machine-readable metadata for platforms that present or index Dot device materials.
+Dot Open Platform is the public resource repository for MindReset open devices and device capabilities. It provides mechanical files, firmware bring-up resources, pin maps, display integration notes, local device protocols, examples, and machine-readable metadata for platforms that present or index Dot device materials.
 
 The first device package in this repository is Quote/0.
+
+The repository also includes capability packages for device-local integrations that do not require custom firmware or the Dot cloud platform.
 
 ## Available Devices
 
 | Device | Package | Included resources |
 | --- | --- | --- |
 | Quote/0 | `devices/quote_0/` | Enclosure STEP and AdventureX 2026 badge STL files, ESP32-C3 GPIO map, standard and Early Bird Edition display drivers, display waveform/LUT notes, ESP-IDF example, developer documentation |
+
+## Available Capabilities
+
+| Capability | Package | Included resources |
+| --- | --- | --- |
+| Rand/0 Display Mode | `capabilities/rand_0_display_mode/` | Local WebSocket protocol reference and an official browser image-sending example |
 
 ## Quick Links
 
@@ -22,6 +30,8 @@ The first device package in this repository is Quote/0.
 - [Display resources](devices/quote_0/firmware-resources/display/README.md)
 - [Display driver selection](devices/quote_0/firmware-resources/display/driver-selection.md)
 - [Custom firmware guide](devices/quote_0/docs/custom-firmware-guide.md)
+- [Rand/0 Display Mode capability](capabilities/rand_0_display_mode/README.md)
+- [Rand/0 browser example](capabilities/rand_0_display_mode/examples/web/display_ws_test.html)
 - [Repository license](LICENSE.md)
 - [Authors](AUTHORS)
 - [Maintainers](MAINTAINERS)
@@ -56,6 +66,11 @@ devices/
     firmware-resources/
     docs/
     examples/
+capabilities/
+  rand_0_display_mode/
+    README.md
+    protocol.md
+    examples/
 ```
 
 Each device package is intended to be useful in two ways:
@@ -74,11 +89,19 @@ Each device package is intended to be useful in two ways:
 - A minimal ESP-IDF example showing how to initialize and refresh the display.
 - Licensing, attribution, contribution, support, and security documentation.
 
+## What Is Included for Rand/0 Display Mode
+
+- A protocol reference for the Rand/0 `200 × 200` local display endpoints.
+- An official dependency-free browser example for sending black-and-white or four-level grayscale images.
+- Button event handling and local-network security guidance.
+
 ## Using These Materials
 
 Start with the [Quote/0 getting started guide](devices/quote_0/docs/getting-started.md). If you are building custom firmware, continue with the [custom firmware guide](devices/quote_0/docs/custom-firmware-guide.md) and the [display integration guide](devices/quote_0/docs/display-integration.md).
 
 If you are working on the enclosure, start with the [enclosure README](devices/quote_0/enclosure/README.md) and inspect the applicable STEP or STL files in your CAD or slicing tool before manufacturing or printing.
+
+If you are building a local Rand/0 display tool, start with the [Rand/0 Display Mode capability](capabilities/rand_0_display_mode/README.md) and its [protocol reference](capabilities/rand_0_display_mode/protocol.md).
 
 ## License Summary
 

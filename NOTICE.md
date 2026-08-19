@@ -14,6 +14,10 @@ Official link: https://dot.mindreset.tech
 
 This notice applies to public hardware notes, documentation, images, examples, enclosure files, GPIO data, and minimal display driver files in this repository unless a specific file states otherwise.
 
+## Rand/0 Display Mode
+
+The Rand/0 Display Mode capability package contains official MindReset examples for connecting to the Rand/0 local display protocol. It does not include Rand/0 product firmware, hardware design files, or cloud API credentials.
+
 ## AdventureX 2026 Badge Enclosure
 
 The two Quote/0 AdventureX 2026 badge enclosure STL files were designed by the AdventureX team and are published in this repository by MindReset.

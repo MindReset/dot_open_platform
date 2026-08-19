@@ -6,6 +6,7 @@ Thanks for improving Dot Open Platform resources. Contributions should make the 
 
 - Corrections to Quote/0 GPIO, display, enclosure, or firmware integration documentation.
 - Small, portable firmware examples that help users bring up the device.
+- Small, portable capability examples that help users build local device integrations.
 - Mechanical notes, drawings, or enclosure export improvements.
 - Clear bug reports with hardware revision, firmware environment, and reproduction steps.
 
@@ -28,6 +29,7 @@ For maintainer responsibilities and ownership, see `MAINTAINERS`. For authorship
 - GPIO and firmware resources: `devices/quote_0/firmware-resources/`
 - User and developer guides: `devices/quote_0/docs/`
 - Examples: `devices/quote_0/examples/`
+- Device capabilities: `capabilities/`
 
 ## Pull request checklist
 

@@ -2,6 +2,12 @@
 
 All notable public releases of the Dot Open Platform repository are documented here.
 
+## 2026-08-19
+
+### Added
+
+- Rand/0 Display Mode capability package with a local WebSocket protocol reference and official browser example.
+
 ## 2026-07-29
 
 ### Added
