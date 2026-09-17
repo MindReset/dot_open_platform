@@ -1,6 +1,6 @@
-# Read/0 (Pico)
+# Read Pico
 
-Read/0 is an ESP32-S3 development board with a 4.7-inch e-paper display, native 16-level grayscale, two-point touch, three touch keys, microSD storage, and USB-C. The Chinese product name is Pico; the Read series is called 小纸 in Chinese.
+Read Pico is an ESP32-S3 development board with a 4.7-inch e-paper display, native 16-level grayscale, two-point touch, three touch keys, microSD storage, and USB-C. The product belongs to the Read series.
 
 ## Official firmware and hardware references
 
@@ -13,7 +13,7 @@ This Open Platform package is an entry point. Firmware, drivers, and assets are 
 | Resource | Link |
 | --- | --- |
 | Official firmware, board support, and pinout | [read_pico_firmware](https://github.com/MindReset/read_pico_firmware) |
-| Product documentation | [Read/0 / Pico](https://dot.mindreset.tech/docs/read_0) |
+| Product documentation | [Read Pico](https://dot.mindreset.tech/docs/read_0) |
 | Official demo guide | [Getting started](https://dot.mindreset.tech/docs/read_0/start) |
 | Build and flash | [Firmware guide](https://dot.mindreset.tech/docs/read_0/firmware) |
 | Machine-readable resource index | [manifest.json](manifest.json) |

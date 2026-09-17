@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "device": {
-    "name": "Read/0",
+    "name": "Read Pico",
     "slug": "read_0",
     "vendor": "MindReset",
     "category": "open-device",
-    "summary": "Official firmware and hardware resource links for Read/0, named Pico in Chinese."
+    "summary": "Official firmware and hardware resource links for Read Pico."
   },
   "links": {
     "developer_platform": "https://dot.mindreset.tech/developers",
