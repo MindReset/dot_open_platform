@@ -2,23 +2,19 @@
 
 Dot Open Platform is the public resource repository for MindReset open devices and device capabilities. It provides mechanical files, firmware bring-up resources, pin maps, display integration notes, local device protocols, examples, and machine-readable metadata for platforms that present or index Dot device materials.
 
-The first device package in this repository is Quote/0.
+Resources cover Quote/0 hardware, Rand/0 local Display Mode, and Read/0 (Pico) firmware development.
 
-The repository also includes capability packages for device-local integrations that do not require custom firmware or the Dot cloud platform.
+## Available Resources
 
-## Available Devices
-
-| Device | Package | Included resources |
+| Product | Package | Included resources |
 | --- | --- | --- |
 | Quote/0 | `devices/quote_0/` | Enclosure STEP and AdventureX 2026 badge STL files, ESP32-C3 GPIO map, standard and Early Bird Edition display drivers, display waveform/LUT notes, ESP-IDF example, developer documentation |
-
-## Available Capabilities
-
-| Capability | Package | Included resources |
-| --- | --- | --- |
 | Rand/0 Display Mode | `capabilities/rand_0_display_mode/` | Local WebSocket protocol reference and an official browser image-sending example |
+| Read/0 (Pico) | [devices/read_0/](devices/read_0/README.md) | Official demo firmware, board support, drivers, and pinout links; source remains in the dedicated repository |
 
 ## Quick Links
+
+### Quote/0
 
 - [Quote/0 device package](devices/quote_0/README.md)
 - [Quote/0 manifest](devices/quote_0/manifest.json)
@@ -30,8 +26,19 @@ The repository also includes capability packages for device-local integrations t
 - [Display resources](devices/quote_0/firmware-resources/display/README.md)
 - [Display driver selection](devices/quote_0/firmware-resources/display/driver-selection.md)
 - [Custom firmware guide](devices/quote_0/docs/custom-firmware-guide.md)
+
+### Rand/0
+
 - [Rand/0 Display Mode capability](capabilities/rand_0_display_mode/README.md)
 - [Rand/0 browser example](capabilities/rand_0_display_mode/examples/web/display_ws_test.html)
+
+### Read/0 (Pico)
+
+- [Read/0 (Pico) hardware and firmware entry](devices/read_0/README.md)
+- [Read/0 (Pico) official firmware repository](https://github.com/MindReset/read_pico_firmware)
+
+### Repository
+
 - [Repository license](LICENSE.md)
 - [Authors](AUTHORS)
 - [Maintainers](MAINTAINERS)
@@ -42,14 +49,28 @@ For a product-level overview of the Dot developer ecosystem, visit the [Dot Deve
 
 The links below point to reference documentation and community resources that are most relevant when using this repository:
 
+### Product Documentation
+
 | Resource | What it helps you do |
 | --- | --- |
 | [Quote/0 Docs](https://dot.mindreset.tech/docs/quote_0) | Learn how Quote/0 works, including setup, firmware, and user-facing device behavior. |
+| [Rand/0 Docs](https://dot.mindreset.tech/docs/rand_0) | Device features, setup, and local Display Mode. |
+| [Read/0 Docs](https://dot.mindreset.tech/docs/read_0) | Product specifications, official demos, and firmware development. |
+
+### Developer APIs and Skills
+
+| Resource | What it helps you do |
+| --- | --- |
 | [Developer Platform Docs](https://dot.mindreset.tech/docs/service/open) | Create API keys, find device IDs, read device status, update device settings, and control device content. |
 | [Text API](https://dot.mindreset.tech/docs/service/open/text_api) | Send text content to Dot devices. |
 | [Image API](https://dot.mindreset.tech/docs/service/open/image_api) | Send image content to Dot devices. |
 | [Canvas API](https://dot.mindreset.tech/docs/service/open/canvas_api) | Create structured visual content for Dot devices. |
 | [Skills](https://dot.mindreset.tech/docs/service/open/skill) | Build reusable device content workflows. |
+
+### Content and Community
+
+| Resource | What it helps you do |
+| --- | --- |
 | [Content Studio](https://dot.mindreset.tech/docs/service/studio) | Create and manage rich Dot content without writing a full firmware stack. |
 | [Community Co-Creation](https://dot.mindreset.tech/docs/service/co_create) | Browse community-built Dot integrations and examples. |
 | [Software Co-Creation](https://dot.mindreset.tech/docs/service/co_create/software) | Explore API clients, automations, MCP integrations, dashboards, and software workflows. |
@@ -66,6 +87,9 @@ devices/
     firmware-resources/
     docs/
     examples/
+  read_0/
+    README.md
+    manifest.json
 capabilities/
   rand_0_display_mode/
     README.md
@@ -102,6 +126,8 @@ Start with the [Quote/0 getting started guide](devices/quote_0/docs/getting-star
 If you are working on the enclosure, start with the [enclosure README](devices/quote_0/enclosure/README.md) and inspect the applicable STEP or STL files in your CAD or slicing tool before manufacturing or printing.
 
 If you are building a local Rand/0 display tool, start with the [Rand/0 Display Mode capability](capabilities/rand_0_display_mode/README.md) and its [protocol reference](capabilities/rand_0_display_mode/protocol.md).
+
+For Read/0 (Pico), start with the [resource entry](devices/read_0/README.md) and continue in the [official firmware repository](https://github.com/MindReset/read_pico_firmware).
 
 ## License Summary
 
