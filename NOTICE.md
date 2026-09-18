@@ -23,3 +23,17 @@ The Rand/0 Display Mode capability package contains official MindReset examples 
 The two Quote/0 AdventureX 2026 badge enclosure STL files were designed by the AdventureX team and are published in this repository by MindReset.
 
 AdventureX: https://adventure-x.org/en
+
+## Read Pico Enclosure
+
+The Read Pico enclosure STEP model is provided by MindReset under CERN-OHL-P-2.0. Keep a clear attribution to MindReset when distributing projects based on this model.
+
+Recommended attribution:
+
+```text
+This project is based on Read Pico enclosure design and public materials by MindReset.
+Hardware source: MindReset
+Official link: https://dot.mindreset.tech
+```
+
+Firmware resources linked from the Read Pico package retain the licenses and notices in their own repository.

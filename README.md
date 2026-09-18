@@ -2,7 +2,7 @@
 
 Dot Open Platform is the public resource repository for MindReset open devices and device capabilities. It provides mechanical files, firmware bring-up resources, pin maps, display integration notes, local device protocols, examples, and machine-readable metadata for platforms that present or index Dot device materials.
 
-Resources cover Quote/0 hardware, Rand/0 local Display Mode, and Read Pico firmware development.
+Resources cover Quote/0 hardware, Rand/0 local Display Mode, and Read Pico enclosure design and firmware development.
 
 ## Available Resources
 
@@ -10,7 +10,7 @@ Resources cover Quote/0 hardware, Rand/0 local Display Mode, and Read Pico firmw
 | --- | --- | --- |
 | Quote/0 | `devices/quote_0/` | Enclosure STEP and AdventureX 2026 badge STL files, ESP32-C3 GPIO map, standard and Early Bird Edition display drivers, display waveform/LUT notes, ESP-IDF example, developer documentation |
 | Rand/0 Display Mode | `capabilities/rand_0_display_mode/` | Local WebSocket protocol reference and an official browser image-sending example |
-| Read Pico | [devices/read_0/](devices/read_0/README.md) | Official demo firmware, board support, drivers, and pinout links; source remains in the dedicated repository |
+| Read Pico | [devices/read_0/](devices/read_0/README.md) | Enclosure STEP model and mechanical notes; official demo firmware, board support, drivers, and pinout links |
 
 ## Quick Links
 
@@ -35,6 +35,8 @@ Resources cover Quote/0 hardware, Rand/0 local Display Mode, and Read Pico firmw
 ### Read Pico
 
 - [Read Pico hardware and firmware entry](devices/read_0/README.md)
+- [Read Pico enclosure resources](devices/read_0/enclosure/README.md)
+- [Read Pico enclosure STEP](devices/read_0/enclosure/step/read_0-enclosure.step)
 - [Read Pico official firmware repository](https://github.com/MindReset/read_pico_firmware)
 
 ### Repository
@@ -90,6 +92,7 @@ devices/
   read_0/
     README.md
     manifest.json
+    enclosure/
 capabilities/
   rand_0_display_mode/
     README.md
@@ -127,7 +130,7 @@ If you are working on the enclosure, start with the [enclosure README](devices/q
 
 If you are building a local Rand/0 display tool, start with the [Rand/0 Display Mode capability](capabilities/rand_0_display_mode/README.md) and its [protocol reference](capabilities/rand_0_display_mode/protocol.md).
 
-For Read Pico, start with the [resource entry](devices/read_0/README.md) and continue in the [official firmware repository](https://github.com/MindReset/read_pico_firmware).
+For Read Pico, start with the [resource entry](devices/read_0/README.md). Use the [enclosure resources](devices/read_0/enclosure/README.md) for custom cases and accessories, or continue in the [official firmware repository](https://github.com/MindReset/read_pico_firmware) for firmware development.
 
 ## License Summary
 

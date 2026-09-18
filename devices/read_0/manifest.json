@@ -5,7 +5,7 @@
     "slug": "read_0",
     "vendor": "MindReset",
     "category": "open-device",
-    "summary": "Official firmware and hardware resource links for Read Pico."
+    "summary": "Enclosure STEP model and official firmware and hardware resource links for Read Pico."
   },
   "links": {
     "developer_platform": "https://dot.mindreset.tech/developers",
@@ -15,6 +15,28 @@
     "firmware_repository": "https://github.com/MindReset/read_pico_firmware"
   },
   "resources": {
-    "overview": "README.md"
+    "overview": "README.md",
+    "enclosure": [
+      {
+        "type": "step",
+        "path": "enclosure/step/read_0-enclosure.step",
+        "description": "Read Pico enclosure STEP AP242 exchange file."
+      }
+    ],
+    "docs": [
+      "enclosure/README.md"
+    ]
+  },
+  "hardware": {
+    "enclosure": {
+      "availableFormats": [
+        "STEP"
+      ],
+      "unit": "mm"
+    }
+  },
+  "licenses": {
+    "hardware": "CERN-OHL-P-2.0",
+    "documentation": "CC-BY-4.0"
   }
 }

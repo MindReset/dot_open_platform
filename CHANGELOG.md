@@ -2,6 +2,17 @@
 
 All notable public releases of the Dot Open Platform repository are documented here.
 
+## 2026-09-18
+
+### Added
+
+- Read Pico enclosure STEP AP242 model in millimeter units, with MindReset attribution and license metadata.
+- Read Pico enclosure modification notes, download links, and machine-readable resource inventory.
+
+### Changed
+
+- Added MindReset attribution and license metadata to the Quote/0 STEP and AdventureX 2026 badge STL files, preserving AdventureX design credit and all geometry.
+
 ## 2026-08-19
 
 ### Added
